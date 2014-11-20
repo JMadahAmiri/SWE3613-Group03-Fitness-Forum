@@ -16,4 +16,3 @@ $password='ndgh678dfg45s';
 $dbname='swe3613_db03p2';
 
 ?>
-
