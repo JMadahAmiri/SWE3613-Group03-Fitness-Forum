@@ -47,45 +47,6 @@
 				</div>
 				<!-- /.row -->
 				<div class="row">
-					<?PHP
-						include 'connection.php';
-						$sql = "SELECT subforum_id, title FROM tbl_subforums";
-						$result = mysql_query($sql);
-						if(!result)
-						{
-							echo 'The categories could not be displayed, please try again.';
-						}
-						else
-						{
-							if(mysql_num_rows($result)==0)
-							{
-								echo 'No categories defined yet.';
-							}
-							else
-							{
-								//prepare forum table
-								echo	'<table border="1">
-										<tr>
-											<th>Category</th>
-										</tr>';
-								//fill the forum table
-								while($row = mysql_fetch_assoc($result))
-								{
-									echo	'<table border="1">
-										<tr>
-											<td>
-												<h3>
-													<a href="MainMenu.html?id>'.$row['subforum_id'].'">
-														'.$row['title'].'
-													</a>
-												<h3>
-											</td>	
-										</tr>';
-								}
-							}
-							
-						}
-					?>
 					<!--<div class="col-sm-4">
 						<center>
 						<a data-toggle="modal" href="#myModal1"><img id = "img_1" class="img-circle img-responsive img-center" src="includes/images/bakery_cakes_3_FreeTiiuPix_300x300.jpg" alt="" border="0"></a>
