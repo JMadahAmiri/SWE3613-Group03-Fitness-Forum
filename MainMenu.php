@@ -9,6 +9,7 @@
     <link href="includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="includes/style.css" rel="stylesheet">
 </head>
+<body>
     <!-- Site header and navigation -->
     <header class="top" role="header">
         <div class="container">
@@ -41,11 +42,11 @@
 			<div class="well bs-component">
 				<div class="row">
 					<div class="col-sm-12">
-						<h2><center>Bulletin Board</center></h2>
-						<p><center>Welcome to Fitness Forum. Join the community and talk about all things fitness. From hiking, to body-building, to swimming, we have a forum for you!</center></p>
+						<h2><center>Are you ready to get buff?</center></h2>
+						<p><center>Welcome to Bobs Bakery's new and improved online business management solution. To get started select one of the links below.</center></p>
 					</div>
 				</div>
-				<!-- /.row --><!--
+				<!-- /.row -->
 				<div class="row">
 					<?PHP
 						include 'connection.php';
@@ -107,9 +108,8 @@
 						<p>Enter orders and customer information.</p>
 						</center>
 					</div>
-<<<<<<< HEAD
-				</div>-->
-<!-->>>>>>> origin/master-->
+					-->
+				</div>
 				<!-- /.row -->
 
 			</div>
