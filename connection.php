@@ -1,3 +1,7 @@
+<!doctype html>
+<html>
+<head></head>
+<body>
 <?php
 $server = 'group03p2.swe3613.com';
 $username = 'wapp03p2swe3613';
@@ -15,3 +19,5 @@ if(!mysql_select_db($database))
 	exit('Error: could not select the database');
 }
 ?>
+</body>
+</html>
