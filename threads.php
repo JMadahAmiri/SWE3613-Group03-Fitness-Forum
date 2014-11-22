@@ -8,17 +8,14 @@
     <!-- Include bootstrap CSS -->
     <link href="includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="includes/style.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
 </head>
     <!-- Site header and navigation -->
     <header class="top" role="header">
-        <div class="container">
-            <h1>
-                <a href="#" class="navbar-brand pull-left">
-                    <!--<img class="imagebox" src="fitness-logo.jpeg">-->
-                    Fitness Forum
-                </a>
-            </h1>
+        <div class="container">  
+            <a href="#" class="navbar-brand pull-left">
+				<!--<img class="imagebox" src="fitness-logo.jpeg">-->
+				Fitness Forum
+            </a>
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="glyphicon glyphicon-align-justify"></span>
             </button>
