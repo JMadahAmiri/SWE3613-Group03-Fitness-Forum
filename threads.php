@@ -48,7 +48,7 @@
 							FROM swe3613_db03p2.tbl_subforums tbl_subforums
 							WHERE tbl_subforums.subforum_id=".mysql_real_escape_string($_GET['id']);		
 					echo "<br>".$sql;					
-					$result = $mysqli->query($sql);
+					$result = mysql_query($sql);
 					if(!result)
 					{
 						echo 'The categories could not be displayed, please try again.';
@@ -61,11 +61,10 @@
 						}
 						else
 						{
-							while($row = $result->fetch_assoc())
+							while($row = mysql_fetch_assoc($result))
 							{
 								//print Category user are in.
-								echo $row["tbl_subforums.title"];
-                                
+								echo '<h2>'.$row['tbl_subforums.title'].'</h2>';
 							}
 							//Get topic query.
 							echo "sub forum ID received from GET: ".$_GET['id'];
