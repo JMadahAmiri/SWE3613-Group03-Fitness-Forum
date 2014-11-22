@@ -22,7 +22,7 @@
             <nav class="navbar-collapse collapse" role="navigation">
                 <ul class="navbar-nav nav">
 					<li><a href="login.php">Login</a></li>
-                    <li><a href="group03p2.swe3613.com">Home</a></li>
+                    <li><a href="">Home</a></li>
 					<li><a href="forums.php">Forum List</a></li>
 					<li><a href="privatemessages.php">Private Messages</a></li>
 					<li><a href="useraccount.php">User Account Panel</a></li>
