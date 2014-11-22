@@ -65,6 +65,7 @@
 								echo '<h2>'.$row['tbl_subforum.title'].'</h2>';
 							}
 							//Get topic query.
+							echo "ID received from GET: ".$_GET['id'];
 							$sql = "SELECT tbl_threads.thread_id,
 										   tbl_threads.title,
 										   tbl_threads.post_count,
