@@ -64,10 +64,9 @@
 							while($row = mysql_fetch_assoc($result))
 							{
 								//print Category user are in.
-								echo '<h2>'.$row['tbl_subforums.title'].'</h2>';
+								echo '<h2>'.$row['title'].'</h2>';
 							}
 							//Get topic query.
-							echo "sub forum ID received from GET: ".$_GET['id'];
 							$sql = "SELECT tbl_threads.thread_id,
 										   tbl_threads.title,
 										   tbl_threads.post_count,
@@ -98,8 +97,8 @@
 										<tr>
 											<td>
 												<p>
-													<a href="threads.php?id='.$row['tbl_threads.thread_id'].'">
-														'.$row['tbl_threads.title'].'
+													<a href="threads.php?id='.$row['thread_id'].'">
+														'.$row['title'].'
 													</a>
 												</p>
 											</td>	
