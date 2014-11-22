@@ -219,6 +219,7 @@ transform: translate(0, 50%) !important;
 table {
     border-collapse: collapse;
     width: 100%;
+    border-radius:6px;
 }
  
 table a {
