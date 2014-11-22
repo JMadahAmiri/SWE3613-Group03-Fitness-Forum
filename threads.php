@@ -71,7 +71,7 @@
 										   tbl_threads.subform_id,
 										   tbl_threads.user_id
 									FROM swe3613_db03p2.tbl_threads tbl_threads
-									WHERE tbl_threads.thread_id=".mysql_real_escape_string($_GET['id']);
+									WHERE tbl_threads.subform_id=".mysql_real_escape_string($_GET['id']);
 							$result = mysql_query($sql);
 							if(!$result)
 							{
