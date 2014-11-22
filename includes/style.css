@@ -1,5 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
-h1, h2, h3 {
+h1 {
+    font-family: 'Comfortaa', cursive;
+}
+h2, h3 {
     font-family: 'Helvetica', sans-serif;
     font-weight: 300;
 }
@@ -16,7 +19,7 @@ html {
     background-color: #47484B;
 }
 .top {
-    background-color: #383838 ;
+    background-color: #47484B;
 }
 .top .navbar-brand {
     height: 50px;
@@ -219,6 +222,7 @@ transform: translate(0, 50%) !important;
 table {
     border-collapse: collapse;
     width: 100%;
+    border-radius:6px;
 }
  
 table a {
