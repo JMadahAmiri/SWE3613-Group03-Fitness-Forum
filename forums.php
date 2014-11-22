@@ -21,9 +21,10 @@
             </button>
             <nav class="navbar-collapse collapse" role="navigation">
                 <ul class="navbar-nav nav">
-                    <li><a href="#">Home</a></li>
+					<li><a href="login.php">Login</a></li>
+                    <li><a href="index.php">Home</a></li>
 					<li><a href="forums.php">Forum List</a></li>
-					<li><a href="recipes.php">Private Messages</a></li>
+					<li><a href="privatemessages.php">Private Messages</a></li>
 					<li><a href="useraccount.php">User Account Panel</a></li>
                 </ul>
             </nav>
@@ -66,7 +67,7 @@
 									<tr>
 										<td>
 											<p>
-												<a href="forums.php?id>'.$row['subforum_id'].'">
+												<a href="forums.php?id='.$row['subforum_id'].'">
 													'.$row['title'].'
 												</a>
 											</p>
