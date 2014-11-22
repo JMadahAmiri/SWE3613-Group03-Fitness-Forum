@@ -95,7 +95,7 @@
 										<tr>
 											<td>
 												<p>
-													<a href="threads.php?id='.$row['thread_id'].'">
+													<a href="posts.php?id='.$row['thread_id'].'">
 														'.$row['title'].'
 													</a>
 												</p>
