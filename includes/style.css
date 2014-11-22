@@ -13,18 +13,18 @@ p {
     font-family: 'Helvetica', sans-serif;
 }
 html {
-    background-color: #004C00;
+    background-color: #474747;
 }
 .top {
     background-color: #383838 ;
 }
 .top .navbar-brand {
-    height: 32px;
-    line-height: 32px;
+    height: 50px;
+    line-height: 50px;
     text-align: center;
     padding: 0 10px;
     background-color: #383838 ;
-    color: #FFFF00;
+    color: #ffffff;
     text-decoration: none;
 }
 .top .container {
@@ -34,21 +34,20 @@ html {
 
  
 .banner {
-    background-color: #004C00;
+    background-color: #474747;
 }
 
 
 .banner .container {
     background-color: #383838 ;
     min-height: 200px;
-    padding: 30px 30px 30px 30px;
+    padding: 40px 30px 30px 40px;
 }
 
 .banner  .imagebox{
   display: block;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  /*Set an image here if necessary*/
   background-color: #383838 ;
   width: 180px; /* Width of new image */
   height: 236px; /* Height of new image */
@@ -58,7 +57,7 @@ html {
 }
 
 .middle {
-    background-color: #004C00;
+    background-color: #474747;
 	margin: 0 auto;
 }
 .middle .container {
@@ -89,7 +88,7 @@ html {
 body {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #004C00;
+  background-color: #474747;
 }
 
 .form-signin {
