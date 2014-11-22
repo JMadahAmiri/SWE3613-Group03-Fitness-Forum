@@ -64,10 +64,10 @@
 							while($row = mysql_fetch_assoc($result))
 							{
 								//print Category user are in.
-								echo '<h2>'.$row['tbl_subforum.title'].'</h2>';
+								echo '<h2>'.$row['tbl_subforums.title'].'</h2>';
 							}
 							//Get topic query.
-							echo "ID received from GET: ".$_GET['id'];
+							echo "sub forum ID received from GET: ".$_GET['id'];
 							$sql = "SELECT tbl_threads.thread_id,
 										   tbl_threads.title,
 										   tbl_threads.post_count,
