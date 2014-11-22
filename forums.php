@@ -13,7 +13,8 @@
     <header class="top" role="header">
         <div class="container">
             <a href="#" class="navbar-brand pull-left">
-			<img class="imagebox" src="fitness-logo.jpeg">
+				<!--<img class="imagebox" src="fitness-logo.jpeg">-->
+				Fitness Forum
             </a>
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="glyphicon glyphicon-align-justify"></span>
@@ -29,45 +30,60 @@
         </div>
     </header>
 <body>
-<?PHP
-	include 'connection.php';
-	$sql = "SELECT tbl_subforum.title, tbl_subforum.subforum_id, tbl_subforum.parent_id
-				FROM swe3613_db03p2.tbl_subforum tbl_subforum";
-	$result = mysql_query($sql);
-	if(!result)
-	{
-		echo 'The categories could not be displayed, please try again.';
-	}
-	else
-	{
-		if(mysql_num_rows($result)==0)
-		{
-			echo 'No categories defined yet.';
-		}
-		else
-		{
-			//prepare forum table
-			echo	'<table border="1">
-					<tr>
-						<th>Category</th>
-					</tr>';
-			//fill the forum table
-			while($row = mysql_fetch_assoc($result))
-			{
-				echo	'<table border="1">
-					<tr>
-						<td>
-							<h3>
-								<a href="MainMenu.html?id>'.$row['subforum_id'].'">
-									'.$row['title'].'
-								</a>
-							<h3>
-						</td>	
-					</tr>';
-			}
-		}
-		
-	}
-	?>
+
+	
+	<!-- Page Content -->
+	<div class="middle">
+		<div class="container">
+			<div class="well bs-component">
+				<div class="row">
+					<?PHP
+					include 'connection.php';
+					$sql = "SELECT tbl_subforum.title, tbl_subforum.subforum_id, tbl_subforum.parent_id
+								FROM swe3613_db03p2.tbl_subforum tbl_subforum";
+					$result = mysql_query($sql);
+					if(!result)
+					{
+						echo 'The categories could not be displayed, please try again.';
+					}
+					else
+					{
+						if(mysql_num_rows($result)==0)
+						{
+							echo 'No categories defined yet.';
+						}
+						else
+						{
+							//prepare forum table
+							echo	'<table border="1">
+									<tr>
+										<th>Category</th>
+									</tr>';
+							//fill the forum table
+							while($row = mysql_fetch_assoc($result))
+							{
+								echo	'<table border="1">
+									<tr>
+										<td>
+											<h3>
+												<a href="forums.php?id>'.$row['subforum_id'].'">
+													'.$row['title'].'
+												</a>
+											<h3>
+										</td>	
+									</tr>';
+							}
+						}
+						
+					}
+					?>
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.well bs-component -->
+		</div>
+		<!-- /.container -->
+	</div>
+	<!-- /.middle -->
 </body>
 </html>
