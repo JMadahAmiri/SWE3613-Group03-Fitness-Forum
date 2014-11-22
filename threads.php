@@ -61,10 +61,11 @@
 						}
 						else
 						{
-							while($row = mysql_fetch_assoc($result))
+							while($row = $result->fetch_assoc())
 							{
 								//print Category user are in.
 								echo $row["tbl_subforums.title"];
+                                
 							}
 							//Get topic query.
 							echo "sub forum ID received from GET: ".$_GET['id'];
