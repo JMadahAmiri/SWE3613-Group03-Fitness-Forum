@@ -65,11 +65,11 @@
 								echo	'<table border="1">
 									<tr>
 										<td>
-											<h3>
+											<p>
 												<a href="forums.php?id>'.$row['subforum_id'].'">
 													'.$row['title'].'
 												</a>
-											<h3>
+											</p>
 										</td>	
 									</tr>';
 							}
