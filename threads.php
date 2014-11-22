@@ -46,7 +46,8 @@
 								tbl_subforum.subforum_id, 
 								tbl_subforum.parent_id
 							FROM swe3613_db03p2.tbl_subforum tbl_subforum
-							WHERE tbl_subforum.subforum_id=".mysql_real_escape_string($_GET['id']);		  
+							WHERE tbl_subforum.subforum_id=".mysql_real_escape_string($_GET['id']);		
+					echo "<br>".$sql;					
 					$result = mysql_query($sql);
 					if(!result)
 					{
