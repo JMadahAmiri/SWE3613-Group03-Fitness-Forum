@@ -41,6 +41,7 @@
 					<?PHP
 					include 'connection.php';
 					//$_GET id from forums.
+					echo "ID received from GET: ".$_GET['id'];
 					$sql = "SELECT tbl_subforum.title, 
 								tbl_subforum.subforum_id, 
 								tbl_subforum.parent_id
