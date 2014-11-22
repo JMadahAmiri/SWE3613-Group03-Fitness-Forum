@@ -40,8 +40,12 @@
 				<div class="row">
 					<?PHP
 					include 'connection.php';
-					$sql = "SELECT tbl_subforum.title, tbl_subforum.subforum_id, tbl_subforum.parent_id
-								FROM swe3613_db03p2.tbl_subforum tbl_subforum";
+					//$_GET id from forums.
+					$sql = "SELECT tbl_subforum.title, 
+								tbl_subforum.subforum_id, 
+								tbl_subforum.parent_id
+							FROM swe3613_db03p2.tbl_subforum tbl_subforum
+							WHERE tbl_subforum.subforum_id=".mysql_real_escape_string($_GET['id']);		  
 					$result = mysql_query($sql);
 					if(!result)
 					{
@@ -51,31 +55,55 @@
 					{
 						if(mysql_num_rows($result)==0)
 						{
-							echo 'No categories defined yet.';
+							echo 'No categories does not exist.';
 						}
 						else
 						{
-							//prepare forum table
-							echo	'<table border="1">
-									<tr>
-										<th>Category</th>
-									</tr>';
-							//fill the forum table
 							while($row = mysql_fetch_assoc($result))
 							{
+								//print Category user are in.
+								echo '<h2>'.$row['tbl_subforum.title'].'</h2>';
+							}
+							//Get topic query.
+							$sql = "SELECT tbl_threads.thread_id,
+										   tbl_threads.title,
+										   tbl_threads.post_count,
+										   tbl_threads.subform_id,
+										   tbl_threads.user_id
+									FROM swe3613_db03p2.tbl_threads tbl_threads
+									WHERE tbl_threads.thread_id=".mysql_real_escape_string($_GET['id']);
+							$result = mysql_query($sql);
+							if(!$result)
+							{
+								echo 'Topic not available';
+							}
+							else
+							{
+								if(mysql_num_rows($result)==0)
+								{
+									echo 'No topic created.';
+								}
+								//prepare forum table
 								echo	'<table border="1">
-									<tr>
-										<td>
-											<p>
-												<a href="threads.php?id='.$row['subforum_id'].'">
-													'.$row['title'].'
-												</a>
-											</p>
-										</td>	
-									</tr>';
+										<tr>
+											<th>Topic</th>
+										</tr>';
+								//fill the forum table
+								while($row = mysql_fetch_assoc($result))
+								{
+									echo	'<table border="1">
+										<tr>
+											<td>
+												<p>
+													<a href="forums.php?id='.$row['tbl_threads.thread_id'].'">
+														'.$row['tbl_threads.title'].'
+													</a>
+												</p>
+											</td>	
+										</tr>';
+								}
 							}
 						}
-						
 					}
 					?>
 				</div>
