@@ -31,7 +31,8 @@
 <body>
 <?PHP
 	include 'connection.php';
-	$sql = "SELECT subforum_id, title FROM tbl_subforums";
+	$sql = "SELECT tbl_subforum.title, tbl_subforum.subforum_id, tbl_subforum.parent_id
+				FROM swe3613_db03p2.tbl_subforum tbl_subforum";
 	$result = mysql_query($sql);
 	if(!result)
 	{
