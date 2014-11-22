@@ -40,8 +40,10 @@
 				<div class="row">
 					<?PHP
 					include 'connection.php';
-					$sql = "SELECT tbl_subforum.title, tbl_subforum.subforum_id, tbl_subforum.parent_id
-								FROM swe3613_db03p2.tbl_subforum tbl_subforum";
+					$sql = "SELECT tbl_subforums.subforum_id,
+								   tbl_subforums.title,
+								   tbl_subforums.parent_id
+							  FROM swe3613_db03p2.tbl_subforums tbl_subforums";
 					$result = mysql_query($sql);
 					if(!result)
 					{
@@ -63,7 +65,7 @@
 							//fill the forum table
 							while($row = mysql_fetch_assoc($result))
 							{
-								echo	'<table border="1">
+								echo'<table border="1">
 									<tr>
 										<td>
 											<p>
