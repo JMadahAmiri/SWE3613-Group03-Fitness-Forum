@@ -41,13 +41,11 @@
 					<?PHP
 					include 'connection.php';
 					//$_GET id from forums.
-					echo "ID received from GET: ".$_GET['id'];
 					$sql = "SELECT tbl_subforums.title, 
 								tbl_subforums.subforum_id, 
 								tbl_subforums.parent_id
 							FROM swe3613_db03p2.tbl_subforums tbl_subforums
-							WHERE tbl_subforums.subforum_id=".mysql_real_escape_string($_GET['id']);		
-					echo "<br>".$sql;					
+							WHERE tbl_subforums.subforum_id=".mysql_real_escape_string($_GET['id']);				
 					$result = mysql_query($sql);
 					if(!result)
 					{
