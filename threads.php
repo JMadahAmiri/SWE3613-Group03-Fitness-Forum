@@ -48,7 +48,7 @@
 							FROM swe3613_db03p2.tbl_subforums tbl_subforums
 							WHERE tbl_subforums.subforum_id=".mysql_real_escape_string($_GET['id']);		
 					echo "<br>".$sql;					
-					$result = mysql_query($sql);
+					$result = $mysqli->query($sql);
 					if(!result)
 					{
 						echo 'The categories could not be displayed, please try again.';
