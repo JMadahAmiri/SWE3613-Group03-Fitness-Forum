@@ -36,26 +36,47 @@
 		<div class="container">
 			<div class="well bs-component">
 				<div class="row">
-					<
+					<legend>Add Category</legend>
+					<div class="form_group">
 					<!--<form method="post" action="">
 						Category name: <input type="text" name= "subforum_title"/>
 						<input type="submit" value="Add subforum"/>
 					</form>-->
+					
 					<?PHP
 					include 'connection.php';
 					//Create subforum
 					
 					if($_SERVER['REQUEST_METHOD'] != 'POST')
-					{
+					{						
+						
 						echo '<form method='post' action = ''>
-							Category name: <input type='text' name='subforum_title' />
-							<input type='submit' value='Add subforum' />
+							Category name*: <input type='text' name='title' />
+							Parent Subforum: <select class "selectpicker" name="parent_ID">'
+						$con = mysqli_connect($server,$username,$password);
+						$query = "SELECT subforum_ID, title FROM tbl_subforums";
+						$qresult = mysqli_query($con, $query);
+						if($qresult == false)
+						{
+							echo "qresult error" . mysqli_error($con);
+						}
+						
+						while($row = mysqli_fetch_array($qresult))
+						{	
+							echo"<option value=\"" . $row['parent_ID'] ."\">".$row['title']."</option>";
+						}
+							
+						echo '<input type='submit' value='Add subforum' />
 							</form>';
 					}
 					else
 					{
-						$sql = "INSERT INTO subforums(subforum_title, subforum_parent)
-							VALUES(mysql_real_escape_string($_POST['subforum_title']), mysql_real_escape_string($_POST['subforum_parent']));"
+						$sql = "INSERT INTO 
+						tbl_subforums(title, parent_ID)
+							VALUES(
+							mysql_real_escape_string($_POST['title']),
+							mysql_real_escape_string($_POST['parent_ID'])
+							);"
 						$result = mysql_query($sql);
 						if(!result)
 						{
