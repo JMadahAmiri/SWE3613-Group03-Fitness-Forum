@@ -36,6 +36,7 @@
 		<div class="container">
 			<div class="well bs-component">
 				<div class="row">
+					<
 					<!--<form method="post" action="">
 						Category name: <input type="text" name= "subforum_title"/>
 						<input type="submit" value="Add subforum"/>
@@ -53,8 +54,8 @@
 					}
 					else
 					{
-						$sql = INSERT INTO subforums(subforum_title)
-							VALUES('' . mysql_real_escape_string($_POST['subforum_title']));
+						$sql = "INSERT INTO subforums(subforum_title, subforum_parent)
+							VALUES(mysql_real_escape_string($_POST['subforum_title']), mysql_real_escape_string($_POST['subforum_parent']));"
 						$result = mysql_query($sql);
 						if(!result)
 						{
@@ -69,7 +70,7 @@
 					
 					
 					?>
-					</div>
+				</div>
 				<!-- /.row -->
 			</div>
 			<!-- /.well bs-component -->
