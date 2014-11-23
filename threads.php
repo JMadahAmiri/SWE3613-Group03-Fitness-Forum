@@ -12,7 +12,7 @@
     <!-- Site header and navigation -->
     <header class="top" role="header">
         <div class="container">  
-            <a href="#" class="navbar-brand pull-left">
+            <a href="index.html" class="navbar-brand pull-left">
 				<!--<img class="imagebox" src="fitness-logo.jpeg">-->
 				Fitness Forum
             </a>
