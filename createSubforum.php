@@ -103,5 +103,6 @@
 		<!-- /.container -->
 	</div>
 	<!-- /.middle -->
+	</div>
 </body>
 </html>
