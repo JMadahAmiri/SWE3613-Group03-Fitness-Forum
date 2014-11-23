@@ -44,7 +44,7 @@
                         
 	<?php
 session_start();
-require("config.php");
+require("connection.php");
 
 $user = $_SESSION['user'];
 
