@@ -50,9 +50,9 @@
 					if($_SERVER['REQUEST_METHOD'] != 'POST')
 					{						
 						
-						echo '<form method='post' action = ''>
-							Category name*: <input type='text' name='title' />
-							Parent Subforum: <select class "selectpicker" name="parent_ID">'
+						echo '<form method="post" action = "">
+							Category name*: <input type="text" name="title" />
+							Parent Subforum: <select class "selectpicker" name="parent_ID">';
 						$con = mysqli_connect($server,$username,$password);
 						$query = "SELECT subforum_ID, title FROM tbl_subforums";
 						$qresult = mysqli_query($con, $query);
