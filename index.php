@@ -25,16 +25,12 @@
 					<li><a href="forums.php">Forum List</a></li>
 					<li><a href="recipes.php">Private Messages</a></li>
 					<li><a href="useraccount.php">User Account Panel</a></li>
-                    
 				</ul>
             </nav>
         </div>
     </header>
 
 <body>
-    <p>
-        You can see me!
-    </p>
     <!-- Page Content -->
 	<div class="middle">
 		<div class="container">
@@ -43,6 +39,18 @@
 					<div class="col-sm-12">
 						<h2><center>Bulletin Board</center></h2>
 						<p><center>Welcome to Fitness Forum. Join the community and talk about all things fitness. From hiking, to body-building, to swimming, we have a forum for you!</center></p>
+<?PHP
+$_SESSION['username'] = 'admin';
+if($_SESSION['username']=='admin')
+{
+    echo    '<form method='post' action='index.php'>
+                Category name: <input type='text' name='alert_name' />
+                Category description: <textarea name='alert_description' /></textarea>
+                <input type='submit' value='Add category' />
+            </form>';
+}
+?>
+
 					</div>
 				</div>
 			</div>
