@@ -56,7 +56,7 @@ $content = $_POST['forward2'];
   $subject = $_POST['subject'];
   $content = $_POST['content'];
   
-  mysql_query("INSERT INTO tbl_private_messages (content, subject) VALUES ('$subject', '$content')")or die(mysql_error());
+  mysql_query("INSERT INTO tbl_private_messages (content, subject,user_receiver_id) VALUES ('$subject', '$content','$user_receiver_id')")or die(mysql_error());
   echo "PM succesfully sent!"; 
 }
 else
