@@ -43,30 +43,33 @@
 						<input type="submit" value="Add subforum"/>
 					</form>-->
 					
+					
 					<?PHP
 					include 'connection.php';
 					//Create subforum
-					
+					$con = mysqli_connect($server,$username,$password);
+					$query = "SELECT subforum_ID, title FROM tbl_subforums";
+					$qresult = mysqli_query($con, $query);
+					if($qresult == false)
+					{
+						echo "qresult error" . mysqli_error($con);
+					}
 					if($_SERVER['REQUEST_METHOD'] != 'POST')
 					{						
 						
 						echo '<form method="post" action = "">
 							Category name*: <input type="text" name="title" />
-							Parent Subforum: <select class "selectpicker" name="parent_ID">';
-						$con = mysqli_connect($server,$username,$password);
-						$query = "SELECT subforum_ID, title FROM tbl_subforums";
-						$qresult = mysqli_query($con, $query);
-						if($qresult == false)
-						{
-							echo "qresult error" . mysqli_error($con);
-						}
+							Parent Subforum: <select class "selectpicker" name="parent_ID">
+							<input type="submit" value="Add category" />
+							';
+
 						
 						while($row = mysqli_fetch_array($qresult))
 						{	
 							echo"<option value=\"" . $row['parent_ID'] ."\">".$row['title']."</option>";
 						}
 							
-						echo '<input type='submit' value='Add subforum' />
+						echo '<input type="submit" value="Add subforum" />
 							</form>';
 					}
 					else
