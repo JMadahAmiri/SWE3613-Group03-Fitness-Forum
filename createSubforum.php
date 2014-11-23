@@ -9,27 +9,28 @@
     <link href="includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="includes/style.css" rel="stylesheet">
 </head>
-    <!-- Site header and navigation -->
-    <header class="top" role="header">
-        <div class="container">  
-            <a href="index.html" class="navbar-brand pull-left">
-				<!--<img class="imagebox" src="fitness-logo.jpeg">-->
-				Fitness Forum
-            </a>
-            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </button>
-            <nav class="navbar-collapse collapse" role="navigation">
-                <ul class="navbar-nav nav">
-					<li><a href="login.php">Login</a></li>
-                    <li><a href="index.html">Home</a></li>
-					<li><a href="forums.php">Forum List</a></li>
-					<li><a href="privatemessages.php">Private Messages</a></li>
-					<li><a href="useraccount.php">User Account Panel</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<!-- Site header and navigation -->
+<header class="top" role="header">
+    <div class="container">  
+        <a href="index.html" class="navbar-brand pull-left">
+            <!--<img class="imagebox" src="fitness-logo.jpeg">-->
+            Fitness Forum
+        </a>
+        <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="glyphicon glyphicon-align-justify"></span>
+        </button>
+        <nav class="navbar-collapse collapse" role="navigation">
+            <ul class="navbar-nav nav">
+                <li><a href="login.php">Login</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="forums.php">Forum List</a></li>
+                <li><a href="privatemessages.php">Private Messages</a></li>
+                <li><a href="useraccount.php">User Account Panel</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
 <body>
 	<!-- Page Content -->
 	<div class="middle">
@@ -70,8 +71,13 @@
 						$sql = "INSERT INTO 
 						tbl_subforums(title, parent_id)
 							VALUES(
+<<<<<<< HEAD
 							'"mysql_real_escape_string($_POST['title'])"',
 							'"($_POST['parent_id'])"'
+=======
+							mysql_real_escape_string($_POST['title']),
+							mysql_real_escape_string($_POST['parent_id'])
+>>>>>>> origin/master
 							);"
 						$result = mysql_query($sql);
 						if(!result)

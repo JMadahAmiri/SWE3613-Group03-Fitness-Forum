@@ -30,7 +30,11 @@
             </nav>
         </div>
     </header>
+
 <body>
+    <p>
+        You can see me!
+    </p>
     <!-- Page Content -->
 	<div class="middle">
 		<div class="container">
@@ -39,9 +43,6 @@
 					<div class="col-sm-12">
 						<h2><center>Bulletin Board</center></h2>
 						<p><center>Welcome to Fitness Forum. Join the community and talk about all things fitness. From hiking, to body-building, to swimming, we have a forum for you!</center></p>
-                        
-                        
-
 					</div>
 				</div>
 			</div>
