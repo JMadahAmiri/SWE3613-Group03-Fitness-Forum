@@ -36,10 +36,10 @@
 		<div class="container">
 			<div class="well bs-component">
 				<div class="row">
-					<form method="post" action="">
+					<!--<form method="post" action="">
 						Category name: <input type="text" name= "subforum_title"/>
 						<input type="submit" value="Add subforum"/>
-					</form>
+					</form>-->
 					<?PHP
 					include 'connection.php';
 					//Create subforum
