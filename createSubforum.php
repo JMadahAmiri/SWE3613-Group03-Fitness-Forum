@@ -46,13 +46,16 @@
 
 					if($_SERVER['REQUEST_METHOD'] != 'POST')
 					{						
-						$con = mysqli_connect($server,$username,$password);
-						mysqli_select_db($con, $database);
-						$query = "SELECT subforum_ID, title FROM tbl_subforums";
-						$qresult = mysqli_query($con, $query);
+						$query = "
+						SELECT 
+							subforum_ID,
+							title 
+						FROM 
+							swe3613_db03p2.tbl_subforums tbl_subforums";
+						$qresult = mysql_query($query);
 						if($qresult == false)
 						{
-							echo "qresult error" . mysqli_error($con);
+							echo "qresult error";
 						}	
 						echo '<form method="post" action = "">
 							Category name*: <input type="text" name="title" />
