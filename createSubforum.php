@@ -67,7 +67,7 @@
 						
 						while($row = mysqli_fetch_array($qresult))
 						{	
-							echo"<option value=\"" . $row['parent_id'] ."\">".$row['title']."</option>";
+							echo"<option value=\"" , $row['parent_id'] ,"\">",$row['title'],"</option>";
 						}
 							
 						echo '<input type="submit" value="Add subforum" />
