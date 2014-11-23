@@ -38,26 +38,22 @@
 				<div class="row">
 					<legend>Add Category</legend>
 					<div class="form_group">
-					<!--<form method="post" action="">
-						Category name: <input type="text" name= "subforum_title"/>
-						<input type="submit" value="Add subforum"/>
-					</form>-->
 					
 					
 					<?PHP
 					include 'connection.php';
 					//Create subforum
 
-					if($qresult == false)
-					{
-						echo "qresult error" . mysqli_error($con);
-					}
 					if($_SERVER['REQUEST_METHOD'] != 'POST')
 					{						
 						$con = mysqli_connect($server,$username,$password);
 						mysqli_select_db($con, $database);
 						$query = "SELECT subforum_ID, title FROM tbl_subforums";
 						$qresult = mysqli_query($con, $query);
+						if($qresult == false)
+						{
+							echo "qresult error" . mysqli_error($con);
+						}	
 						echo '<form method="post" action = "">
 							Category name*: <input type="text" name="title" />
 							Parent Subforum: <select class "selectpicker" name="parent_id">
