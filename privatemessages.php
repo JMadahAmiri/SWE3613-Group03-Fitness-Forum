@@ -23,7 +23,7 @@
                 <ul class="navbar-nav nav">
                     <li><a href="login.php">Log In</a></li>
 					<li><a href="forums.php">Forum List</a></li>
-					<li><a href="recipes.php">Private Messages</a></li>
+					<li><a href="privatemessages.php">Private Messages</a></li>
 					<li><a href="useraccount.php">User Account Panel</a></li>
 					<li><a href="inbox.php">Inbox</a></li>
                     
