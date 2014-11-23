@@ -77,8 +77,8 @@
 						$sql = "INSERT INTO 
 						tbl_subforums(title, parent_id)
 							VALUES(
-							mysql_real_escape_string($_POST['title']),
-							mysql_real_escape_string($_POST['parent_id'])
+							'"mysql_real_escape_string($_POST['title'])"',
+							'"mysql_real_escape_string($_POST['parent_id'])"'
 							);"
 						$result = mysql_query($sql);
 						if(!result)
