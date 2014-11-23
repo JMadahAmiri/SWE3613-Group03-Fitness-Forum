@@ -11,8 +11,8 @@
 </head>
     <!-- Site header and navigation -->
     <header class="top" role="header">
-        <div class="container">
-            <a href="index.html" class="navbar-brand pull-left">
+        <div class="container">  
+            <a href="#" class="navbar-brand pull-left">
 				<!--<img class="imagebox" src="fitness-logo.jpeg">-->
 				Fitness Forum
             </a>
@@ -26,61 +26,56 @@
 					<li><a href="forums.php">Forum List</a></li>
 					<li><a href="privatemessages.php">Private Messages</a></li>
 					<li><a href="useraccount.php">User Account Panel</a></li>
-					<li><a href="createSubforum.php">Create New Subforum</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 <body>
-
+	<!-- Page Content -->
+	<div class="middle">
+		<div class="container">
+			<div class="well bs-component">
+				<div class="row">
 	
 	<!-- Page Content -->
 	<div class="middle">
 		<div class="container">
 			<div class="well bs-component">
 				<div class="row">
+					<form method="post" action="">
+						Category name: <input type="text" name= "subforum_title"/>
+						<input type="submit" value="Add subforum"/>
+					</form>
 					<?PHP
 					include 'connection.php';
-					$sql = "SELECT tbl_subforums.subforum_id,
-								   tbl_subforums.title,
-								   tbl_subforums.parent_id
-							  FROM swe3613_db03p2.tbl_subforums tbl_subforums";
-					$result = mysql_query($sql);
-					if(!result)
+					//Create subforum
+					
+					if($_SERVER['REQUEST_METHOD'] != 'POST')
 					{
-						echo 'The categories could not be displayed, please try again.';
+						echo '<form method='post' action = ''>
+							Category name: <input type='text' name='subforum_title' />
+							<input type='submit' value='Add subforum' />
+							</form>';
 					}
 					else
 					{
-						if(mysql_num_rows($result)==0)
+						$sql = INSERT INTO subforums(subforum_title)
+							VALUES('' . mysql_real_escape_string($_POST['subforum_title']));
+						$result = mysql_query($sql);
+						if(!result)
 						{
-							echo 'No categories defined yet.';
+							//something went wrong
+							echo 'Error' . mysql_error();
 						}
 						else
 						{
-							//prepare forum table
-							echo	'<table border="1">
-									<tr>
-										<th>Category</th>
-									</tr>';
-							//fill the forum table
-							while($row = mysql_fetch_assoc($result))
-							{
-								echo'<table border="1">
-									<tr>
-										<td>
-											<p>
-												<a href="threads.php?id='.$row['subforum_id'].'">
-													'.$row['title'].'
-												</a>
-											</p>
-										</td>	
-									</tr>';
-							}
+							echo 'New category successfully added.';
 						}
 					}
+					
+					
 					?>
-				</div>
+					</div>
 				<!-- /.row -->
 			</div>
 			<!-- /.well bs-component -->
