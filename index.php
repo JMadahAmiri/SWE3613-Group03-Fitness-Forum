@@ -40,10 +40,10 @@
 						<h2><center>Bulletin Board</center></h2>
 						<p><center>Welcome to Fitness Forum. Join the community and talk about all things fitness. From hiking, to body-building, to swimming, we have a forum for you!</center></p>
 <?PHP
-$_SESSION['username'] = 'admin';
-if($_SESSION['username']=='admin')
+$current_user=1
+if($current_user=1)
 {
-    echo    '<form method='post' action='index.php'>
+echo '<form method='post' action='index.php'>
                 Category name: <input type='text' name='alert_name' />
                 Category description: <textarea name='alert_description' /></textarea>
                 <input type='submit' value='Add category' />
