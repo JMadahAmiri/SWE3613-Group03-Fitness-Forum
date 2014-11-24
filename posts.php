@@ -67,22 +67,29 @@
 								echo '<h2>'.$row['title'].'</h2>';
 							}
 							//Get posts query.
-							$sql = "SELECT tbl_posts.content,
+							$sql = "SELECT tbl_threads.thread_id,
+										   tbl_threads.title,
+										   tbl_threads.post_count,
+										   tbl_threads.subform_id,
+										   tbl_threads.user_id,
+										   tbl_posts.post_id,
+										   tbl_posts.content,
 										   tbl_posts.sticky,
 										   tbl_posts.post_timestamp,
 										   tbl_posts.user_id,
 										   tbl_posts.thread_id,
-										   tbl_posts.post_id,
-										   tbl_posts.title
+										   tbl_posts.title,
 										   tbl_users.users_id,
 										   tbl_users.username,
 										   tbl_users.password,
 										   tbl_users.biography,
 										   tbl_users.type
-									  FROM swe3613_db03p2.tbl_posts tbl_posts
+									  FROM (swe3613_db03p2.tbl_posts tbl_posts
+											INNER JOIN swe3613_db03p2.tbl_threads tbl_threads
+											   ON (tbl_posts.thread_id = tbl_threads.thread_id))
 										   INNER JOIN swe3613_db03p2.tbl_users tbl_users
 											  ON (tbl_posts.user_id = tbl_users.users_id)
-									WHERE tbl_posts.thread_id=".mysql_real_escape_string($_GET['id']);
+									 WHERE tbl_threads.thread_id =".mysql_real_escape_string($_GET['id']);
 							$result = mysql_query($sql);
 							if(!$result)
 							{
