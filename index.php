@@ -40,14 +40,38 @@
 						<h2><center>Bulletin Board</center></h2>
 						<p><center>Welcome to Fitness Forum. Join the community and talk about all things fitness. From hiking, to body-building, to swimming, we have a forum for you!</center></p>
 <?PHP
-$current_user=1
-if($current_user=1)
+include 'connection';
+if(!$_GET['notification_message'] == "")
+{
+	$notification_title = $_GET['notification_title'];
+	$notification_message = $_GET['notification_message'];
+	$query = "UPDATE tbl_notifications SET message=".$notification_message." WHERE notification_id = 1";
+	
+	
+	//connect to the database 
+	mysql_connect ($db_host,  $db_username, $db_password) or die ('I cannot connect  to the database because: ' . mysql_error());
+	//-select the database to use 
+	mysql_select_db($db_name);
+	//-query the database table 
+	$query = mysql_query($query);
+	$numrows = mysql_num_rows($query);
+}
+while($row = mysql_fetch_assoc($query))
+{
+	$current_title  =$row['title']; 
+	$current_message=$row['message'];
+	echo "Notification: ".$current_message;
+}
+
+$_SESSION['username']='admin';
+if($_SESSION['username']=='admin')
 {
 echo '<form method='post' action='index.php'>
-                Category name: <input type='text' name='alert_name' />
-                Category description: <textarea name='alert_description' /></textarea>
-                <input type='submit' value='Add category' />
-            </form>';
+		<br>Notification Editior:<br>
+        title: <br><input type='text' name='notification_title' /><br>
+        message: <br><textarea name='notification_message' /></textarea><br>
+        <input type='submit' value='Submite update' />
+    </form>';
 }
 ?>
 
