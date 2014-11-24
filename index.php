@@ -39,31 +39,30 @@
 					<div class="col-sm-12">
 						<h2><center>Bulletin Board</center></h2>
 						<p><center>Welcome to Fitness Forum. Join the community and talk about all things fitness. From hiking, to body-building, to swimming, we have a forum for you!</center></p>
-<?PHP
+<?php
 include 'connection';
+mysql_connect ($db_host,  $db_username, $db_password) or die ('I cannot connect  to the database because: ' . mysql_error());
+mysql_select_db($db_name);
+//grab message from notification editor
 if(!$_GET['notification_message'] == "")
 {
 	$notification_title = $_GET['notification_title'];
 	$notification_message = $_GET['notification_message'];
 	$query = "UPDATE tbl_notifications SET message=".$notification_message." WHERE notification_id = 1";
 	
-	
-	//connect to the database 
-	mysql_connect ($db_host,  $db_username, $db_password) or die ('I cannot connect  to the database because: ' . mysql_error());
-	//-select the database to use 
-	mysql_select_db($db_name);
 	//-query the database table 
 	$query = mysql_query($query);
-	$numrows = mysql_num_rows($query);
 }
+//print the current notification
 while($row = mysql_fetch_assoc($query))
 {
 	$current_title  =$row['title']; 
 	$current_message=$row['message'];
 	echo "Notification: ".$current_message;
 }
-
+session_start();
 $_SESSION['username']='admin';
+//only admin can see this Notification Editor
 if($_SESSION['username']=='admin')
 {
 echo '<form method='post' action='index.php'>
