@@ -41,8 +41,8 @@
 						<p><center>Welcome to Fitness Forum. Join the community and talk about all things fitness. From hiking, to body-building, to swimming, we have a forum for you!</center></p>
 <?php
 include 'connection';
-mysql_connect ($db_host,  $db_username, $db_password) or die ('I cannot connect  to the database because: ' . mysql_error());
-mysql_select_db($db_name);
+mysql_connect ($server,  $username, $password) or die ('I cannot connect  to the database because: ' . mysql_error());
+mysql_select_db($database);
 //grab message from notification editor
 if(!$_GET['notification_message'] == "")
 {
