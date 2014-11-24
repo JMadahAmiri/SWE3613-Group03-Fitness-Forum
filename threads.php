@@ -86,8 +86,10 @@
 								//prepare forum table
 								echo	'<table border="1">
 										<tr>
-											<th>Topic</th>
-										</tr>';
+											<th>username</th>
+											<th>message</th>
+										</tr>'
+										;
 								//fill the forum table
 								while($row = mysql_fetch_assoc($result))
 								{

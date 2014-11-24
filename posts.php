@@ -41,21 +41,23 @@
 					<?PHP
 					include 'connection.php';
 					//$_GET id from forums.
-					$sql = "SELECT tbl_subforums.title, 
-								tbl_subforums.subforum_id, 
-								tbl_subforums.parent_id
-							FROM swe3613_db03p2.tbl_subforums tbl_subforums
-							WHERE tbl_subforums.subforum_id=".mysql_real_escape_string($_GET['id']);				
+					$sql = "SELECT tbl_threads.thread_id,
+								   tbl_threads.title,
+								   tbl_threads.post_count,
+								   tbl_threads.subform_id,
+								   tbl_threads.user_id
+							  FROM swe3613_db03p2.tbl_threads tbl_threads
+							 WHERE tbl_threads.thread_id =".mysql_real_escape_string($_GET['id']);			
 					$result = mysql_query($sql);
 					if(!result)
 					{
-						echo 'The categories could not be displayed, please try again.';
+						echo 'The thread could not be displayed, please try again.';
 					}
 					else
 					{
 						if(mysql_num_rows($result)==0)
 						{
-							echo 'No categories does not exist.';
+							echo 'Thread does not exist.';
 						}
 						else
 						{
