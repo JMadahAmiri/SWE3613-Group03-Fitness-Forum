@@ -63,6 +63,7 @@
 						//Display box for new forum title and dropdown for selecting parent forum
 						echo '<form method="post" action = "createSubforum.php">Category name: <input type="text" name="title" />
 						<div></div>Parent Subforum(Optional): <select name="parent_id">';
+						echo '<option value="">None</option>';
 						while($row = mysql_fetch_array($qresult))
 						{	
 							echo'<option value="'.$row['subforum_id'].'">
@@ -76,10 +77,19 @@
 					{
 						$title = mysql_real_escape_string($_POST['title']);
 						$parent_id = $_POST['parent_id'];
+						if($parent_id > 0)
+						{
 						$sql = "INSERT INTO 
 						tbl_subforums(title, parent_id)
 							VALUES('$title', '$parent_id')";
-						$result = mysql_query($sql or die(mysql_error()));
+						}
+						else
+						{
+						$sql = "INSERT INTO
+						tbl_subforums(title)
+						VALUES('$title')";
+						}
+						$result = mysql_query($sql);
 						if(!result)
 						{
 							//something went wrong
