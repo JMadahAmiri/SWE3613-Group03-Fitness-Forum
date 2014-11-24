@@ -86,8 +86,7 @@
 								//prepare forum table
 								echo	'<table border="1">
 										<tr>
-											<th>username</th>
-											<th>message</th>
+											<th>Topic</th>
 										</tr>'
 										;
 								//fill the forum table
