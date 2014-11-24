@@ -72,7 +72,8 @@
 										   tbl_posts.post_timestamp,
 										   tbl_posts.user_id,
 										   tbl_posts.thread_id,
-										   tbl_posts.tbl_posts,
+										   tbl_posts.post_id,
+										   tbl_posts.title
 										   tbl_users.users_id,
 										   tbl_users.username,
 										   tbl_users.password,
@@ -81,7 +82,7 @@
 									  FROM swe3613_db03p2.tbl_posts tbl_posts
 										   INNER JOIN swe3613_db03p2.tbl_users tbl_users
 											  ON (tbl_posts.user_id = tbl_users.users_id)
-									WHERE tbl_posts.posts_id=".mysql_real_escape_string($_GET['id']);
+									WHERE tbl_posts.thread_id=".mysql_real_escape_string($_GET['id']);
 							$result = mysql_query($sql);
 							if(!$result)
 							{
@@ -96,7 +97,7 @@
 								//prepare forum table
 								echo	'<table border="1">
 										<tr>
-											<th>Topic</th>
+											<th>'.$row[''].'</th>
 										</tr>';
 								//fill the forum table
 								while($row = mysql_fetch_assoc($result))
