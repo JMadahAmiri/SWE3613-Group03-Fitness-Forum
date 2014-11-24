@@ -73,7 +73,7 @@
 										   tbl_posts.user_id,
 										   tbl_posts.thread_id,
 										   tbl_posts.post_id,
-										   tbl_posts.title
+										   tbl_posts.title,
 										   tbl_users.users_id,
 										   tbl_users.username,
 										   tbl_users.password,
