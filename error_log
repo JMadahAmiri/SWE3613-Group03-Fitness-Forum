@@ -1,0 +1,5 @@
+[22-Nov-2014 21:00:18 UTC] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/csc4370/public_html/swe3613group03p2/threads.php on line 64
+[22-Nov-2014 21:03:16 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/csc4370/public_html/swe3613group03p2/threads.php on line 51
+[22-Nov-2014 21:08:38 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/csc4370/public_html/swe3613group03p2/threads.php on line 51
+[22-Nov-2014 21:10:33 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/csc4370/public_html/swe3613group03p2/threads.php on line 51
+[22-Nov-2014 21:10:34 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/csc4370/public_html/swe3613group03p2/threads.php on line 51

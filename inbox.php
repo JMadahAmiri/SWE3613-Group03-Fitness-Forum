@@ -56,7 +56,7 @@ while($row2 = mysql_fetch_array($query))
   echo "<table border=1>";
   echo "<tr><td>";
   echo "Message ID#: ";
-  echo $row2['id'];
+  echo $row2['private_messages_id'];
   echo "</td></tr>";
   echo "<tr><td>";
   echo "To: ";
@@ -64,12 +64,12 @@ while($row2 = mysql_fetch_array($query))
   echo "</td></tr>";
   echo "<tr><td>";
   echo "From: ";
-  echo $row2['from_user'];
+  echo $row2['user_sender_id'];
   echo " ";
   echo "</td></tr>";
   echo "<tr><td>";
   echo "Message: ";
-  echo bb ($row2['message']);
+  echo bb ($row2['content']);
   echo "</td></tr>";
   echo "</br>";
 ?>
@@ -77,10 +77,10 @@ while($row2 = mysql_fetch_array($query))
 <table border="0">
 <tr><td colspan=2></td></tr>
 <tr><td></td><td>
-<input type="hidden" name="id" maxlength="32" value = "<?php echo $row2['id']; ?>">
+<input type="hidden" name="id" maxlength="32" value = "<?php echo $row2['private_messages_id']; ?>">
 </td></tr>
 <tr><td colspan="2" align="right">
-<input type="submit" name="delete" value="Delete PM # <?php echo $row2['id']; ?>">
+<input type="submit" name="delete" value="Delete PM # <?php echo $row2['private_messages_id']; ?>">
 </td></tr>
 </table>
 </form>
@@ -89,45 +89,45 @@ while($row2 = mysql_fetch_array($query))
 }
 
 if (isset($_POST['delete'])) {
-$id = $_POST['id'];
-$user = $_SESSION['username'];
-$sql = mysql_query("UPDATE tbl_private_messages SET deleted = 'yes' WHERE id = '$id' AND user_receiver_id = '$user'")or die(mysql_error());
+$id = $_POST['private_messages_id'];
+$user = $_SESSION['user'];
+$sql = mysql_query("delete from tbl_private_messages  WHERE private_messages_id = 'private_messages_id' AND user_receiver_id = 'user_receiver_id'")or die(mysql_error());
 echo "Your message has been succesfully deleted.";
 }
 
-$sql = mysql_query("SELECT * FROM tbl_private_messages WHERE user_receiver_id = '$_SESSION[username]'")or die(mysql_error());
+$sql = mysql_query("SELECT * FROM tbl_private_messages WHERE user_receiver_id = '2'")or die(mysql_error());
 while($row = mysql_fetch_array($sql))
 { 
 $user = $_SESSION['user'];
   echo "<table border=1>";
   echo "<tr><td>";
   echo "Message ID#: ";
-  echo $row[id];
+  echo $row['private_messages_id'];
   echo "</td></tr>";
   echo "<tr><td>";
   echo "To: ";
-  echo $row[user_receiver_id];
+  echo $row['user_receiver_id'];
   echo "</td></tr>";
   echo "<tr><td>";
   echo "From: ";
-  echo $row[from_user];
+  echo $row['user_sender_id'];
   echo "</td></tr>";
   echo "<tr><td>";
   echo "Message: ";
-  echo $row[message];
+  echo $row['content'];
   echo "</td></tr>";
   echo "</br>";
-  mysql_query("UPDATE tbl_private_messages SET read_yet = 'yes' WHERE user_receiver_id = '$user' AND id ='$row_id'")or die(mysql_error());
+  #mysql_query("UPDATE tbl_private_messages SET read_yet = 'yes' WHERE user_receiver_id = '$user' AND id ='$row_id'")or die(mysql_error());
 ?>
 
 <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
 <table border="0">
 <tr><td colspan=2></td></tr>
 <tr><td></td><td>
-<input type="hidden" name="id" maxlength="32" value = "<?php echo $row['id']; ?>">
+<input type="hidden" name="id" maxlength="32" value = "<?php echo $row['private_messages_id']; ?>">
 </td></tr>
 <tr><td colspan="2" align="right">
-<input type="submit" name="delete" value="Delete PM # <?php echo $row['id']; ?>">
+<input type="submit" name="delete" value="Delete PM # <?php echo $row['private_messages_id']; ?>">
 </td></tr>
 </table>
 </form>

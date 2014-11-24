@@ -52,11 +52,11 @@ $content = $_POST['forward2'];
 {
 // if the form has been submitted, this inserts it into the Database 
   $user_receiver_id = $_POST['user_receiver_id'];
-  $user_sender_id = $_POST['user_sender_id'];
+  $user_sender_id = $_Session['user'];
   $subject = $_POST['subject'];
   $content = $_POST['content'];
   
-  mysql_query("INSERT INTO tbl_private_messages (content, subject) VALUES ('$subject', '$content')")or die(mysql_error());
+  mysql_query("INSERT INTO tbl_private_messages (content, subject,message_timestamp,user_receiver_id) VALUES ('$subject','$content',now(),'$user_receiver_id')")or die(mysql_error());
   echo "PM succesfully sent!"; 
 }
 else

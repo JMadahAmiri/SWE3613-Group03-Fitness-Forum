@@ -41,45 +41,43 @@
 					<div class="form_group" action="" method = "post">
 					<?PHP
 					include 'connection.php';
+					session_start();
 					//Create subforum
 
-					if($_SERVER['REQUEST_METHOD'] != 'POST')
+					 if (!isset($_POST['submit']))
 					{	
 						$con = mysqli_connect($server,$username,$password);
 						mysqli_select_db($con, $database);
+						//Select current list of forums
 						$query = "
 						SELECT 
 							subforum_ID,
 							title 
 						FROM 
-							swe3613_db03p2.tbl_subforums tbl_subforums";
+							tbl_subforums";
 						$qresult = mysql_query($query);
 						if($qresult == false)
 						{
 							echo "qresult error";
 						}	
-						echo '<form method="post" action = "">Category name*: <input type="text" name="title" /><div></div>Parent Subforum(Optional): <select class "selectpicker" name="parent_id">';
+						//Display box for new forum title and dropdown for selecting parent forum
+						echo '<form method="post" action = "createSubforum.php">Category name: <input type="text" name="title" />
+						<div></div>Parent Subforum(Optional): <select name="parent_id">';
 						while($row = mysql_fetch_array($qresult))
 						{	
-							echo"<option value=\"$row['parent_id']\">'$row['title']'</option>";
+							echo'<option value="'$row['subforum_id']'">'$row['title']'</option>';
 						}
-							
-						echo '<div><input type="submit" value="Add subforum" /></div></form>';
+							echo'</select>';
+						echo '<div><input type="submit" name="submit" value="Add subforum" /></div></form>';
 					}
 					else
 					{
+						$title = mysql_real_escape_string($_POST['title']);
+						$parent_id = $_POST['parent_id'];
 						$sql = "INSERT INTO 
 						tbl_subforums(title, parent_id)
-							VALUES(
-<<<<<<< HEAD
-							'"mysql_real_escape_string($_POST['title'])"',
-							'"($_POST['parent_id'])"'
-=======
-							mysql_real_escape_string($_POST['title']),
-							mysql_real_escape_string($_POST['parent_id'])
->>>>>>> origin/master
-							);"
-						$result = mysql_query($sql);
+							VALUES('$title', '$parent_id')";
+						$result = mysql_query($sql or die(mysql_error()));
 						if(!result)
 						{
 							//something went wrong
